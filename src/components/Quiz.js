@@ -1,10 +1,10 @@
 import React from "react";
 
-const Quiz = () => {
+const Quiz = ({ questions, setQuestions }) => {
   return (
-    <main>
+    <div>
       <div className="quizzes">
-        <h2>How would one say goodbye in Spanish?</h2>
+        <h2></h2>
         <div className="options">
           <span className="option"></span>
           <span className="option"></span>
@@ -12,8 +12,9 @@ const Quiz = () => {
           <span className="option"></span>
         </div>
       </div>
+      <button className="btn">Check answers</button>
       <hr />
-    </main>
+    </div>
   );
 };
 
