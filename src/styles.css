@@ -7,10 +7,13 @@
 }
 
 html {
-  font-family: "Karla", sans-serif;
   font-size: 16px;
   color: #293264;
   background-color: #f5f7fb;
+}
+
+p {
+  font-family: "Inter", sans-serif;
 }
 
 .home-page {
@@ -18,5 +21,60 @@ html {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height:100vh;
+  height: 100vh;
+}
+
+h1 {
+  font-family: "Karla", sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+.home-description {
+  margin-top: 1rem;
+}
+
+.btn {
+  margin-top: 1.5rem;
+  padding: 15px 40px;
+  border-radius: 10px;
+  background-color: #4d5b9e;
+  color: #f5f7fb;
+  border: none;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  box-shadow: 0px 4px 4px #000000 25%;
+  width: 100%;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.quizzes {
+  margin: 5% 10%;
+}
+
+@media (max-width: 768px) {
+  .quizzes {
+    margin: 5%;
+  }
+
+  .options {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .option {
+    font-family: "Inter", sans-serif;
+    font-size: 0.9rem;
+    border: 1px solid #293264;
+    padding: 7px 20px;
+    border-radius: 10px;
+  }
+
+  hr {
+    width: 100%;
+  }
 }
