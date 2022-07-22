@@ -4,18 +4,25 @@ import HomePage from "./components/HomePage";
 import Quiz from "./components/Quiz";
 
 export default function App() {
-  const [questions, setQuestions] = useState([]);
+  const API_URL =
+    "https://opentdb.com/api.php?amount=5&category=18&difficulty=medium&type=multiple";
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
-    const fetchData = () => {
-      return fetch(
-        "https://opentdb.com/api.php?amount=5&category=18&difficulty=medium&type=multiple"
-      )
-        .then((response) => response.json())
-        .then((data) => setQuestions(data.results));
+    const getItems = async () => {
+      try {
+        const response = await fetch(API_URL);
+        const data = await response.json();
+        const result = data.results;
+        const questions = Object.values(result);
+        console.log(questions);
+        setItems(questions);
+      } catch (err) {
+        console.log(err);
+      }
     };
 
-    fetchData();
+    getItems();
   }, []);
 
   return (
@@ -23,10 +30,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="Quiz">
-          <Route
-            index
-            element={<Quiz questions={questions} setQuestions={setQuestions} />}
-          />
+          <Route index element={<Quiz items={items} setItems={setItems} />} />
         </Route>
       </Routes>
     </div>
