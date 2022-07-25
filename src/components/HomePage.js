@@ -7,9 +7,11 @@ const HomePage = () => {
       <h1>Quizzical</h1>
       <p className="home-description">Some description if needed</p>
       <form onSubmit={(e) => e.preventDefault()}>
-        <button className="btn" type="submit">
-          <Link to="quiz">Start Quiz</Link>
-        </button>
+        <Link to="quiz">
+          <button className="btn" type="submit">
+            Start Quiz
+          </button>
+        </Link>
       </form>
     </div>
   );
