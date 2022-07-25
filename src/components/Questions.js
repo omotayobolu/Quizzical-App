@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
+import Options from "./Options";
 
 const Questions = ({ quiz }) => {
+  const [selected, setSelected] = useState(false);
+
+  const optionClick = () => {
+    setSelected((prevSelected) => !prevSelected);
+  };
+
   return (
     <div>
       <div className="quizzes">
         <h2>{quiz.question}</h2>
-        <div className="options">
-          <span className="option"></span>
-          <span className="option"></span>
-          <span className="option"></span>
-          <span className="option"></span>
-        </div>
+        <Options selected={selected} optionClick={optionClick} />
       </div>
     </div>
   );

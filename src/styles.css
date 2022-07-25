@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  line-height: 1.5;
 }
 
 html {
@@ -24,8 +25,16 @@ p {
   height: 100vh;
 }
 
-h1 {
+main {
+  width: 100%;
+}
+
+h1,
+h2 {
   font-family: "Karla", sans-serif;
+}
+
+h1 {
   font-weight: bold;
   font-size: 2rem;
   letter-spacing: 1px;
@@ -37,7 +46,8 @@ h1 {
 
 .btn {
   margin-top: 1.5rem;
-  padding: 15px 40px;
+  margin-bottom: 1rem;
+  padding: 10px 40px;
   border-radius: 10px;
   background-color: #4d5b9e;
   color: #f5f7fb;
@@ -45,13 +55,43 @@ h1 {
   font-family: "Inter", sans-serif;
   font-size: 1rem;
   box-shadow: 0px 4px 4px #000000 25%;
-  width: 100%;
   cursor: pointer;
   text-decoration: none;
 }
 
+.btn.checkAnswer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+}
+
+.loading {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
 .quizzes {
-  margin: 5% 10%;
+  margin: 5% 15%;
+  width: 70%;
+}
+
+.options {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+}
+
+.option {
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  padding: 7px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {
@@ -72,9 +112,5 @@ h1 {
     border: 1px solid #293264;
     padding: 7px 20px;
     border-radius: 10px;
-  }
-
-  hr {
-    width: 100%;
   }
 }

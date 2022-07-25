@@ -26,13 +26,14 @@ const Quiz = () => {
       {loading && (
         <div>
           {" "}
-          <h1>Loading questions...</h1>
+          <h1 className="loading">Loading questions...</h1>
         </div>
       )}
 
       {data.map((quiz) => (
         <Questions key={nanoid()} quiz={quiz} />
       ))}
+      <button className="btn checkAnswer">Check answers</button>
     </main>
   );
 };
