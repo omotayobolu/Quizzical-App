@@ -25,10 +25,6 @@ p {
   height: 100vh;
 }
 
-main {
-  width: 100%;
-}
-
 h1,
 h2 {
   font-family: "Karla", sans-serif;
@@ -63,7 +59,8 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid red;
+  margin-top: 1rem;
+  text-decoration: none;
 }
 
 .loading {
@@ -73,14 +70,17 @@ h1 {
 }
 
 .quizzes {
-  margin: 5% 15%;
-  width: 70%;
+  margin: 2% 10%;
+  width: 90%;
+}
+
+.quiz {
+  margin: 2rem 0;
 }
 
 .options {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 70%;
 }
@@ -92,6 +92,11 @@ h1 {
   border-radius: 10px;
   cursor: pointer;
   font-weight: 600;
+  margin-right: 2rem;
+}
+
+.option.last {
+  margin-right: 0;
 }
 
 @media (max-width: 768px) {

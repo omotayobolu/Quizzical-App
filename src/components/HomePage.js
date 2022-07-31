@@ -5,7 +5,7 @@ const HomePage = () => {
   return (
     <div className="home-page">
       <h1>Quizzical</h1>
-      <p className="home-description">Some description if needed</p>
+      <p className="home-description">Some quick questions</p>
       <form onSubmit={(e) => e.preventDefault()}>
         <Link to="quiz">
           <button className="btn" type="submit">
