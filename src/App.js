@@ -8,9 +8,7 @@ export default function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="Quiz">
-          <Route index element={<Quiz />} />
-        </Route>
+        <Route path="/questions" element={<Quiz />} />
       </Routes>
     </div>
   );

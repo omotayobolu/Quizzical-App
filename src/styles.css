@@ -7,10 +7,13 @@
   line-height: 1.5;
 }
 
-html {
+html,
+body {
   font-size: 16px;
   color: #293264;
   background-color: #f5f7fb;
+  height: 100%;
+  min-height: 100vh;
 }
 
 p {
@@ -64,18 +67,13 @@ h1 {
 }
 
 .loading {
+  height: 100vh;
   display: grid;
   place-items: center;
-  height: 100vh;
-}
-
-.quizzes {
-  margin: 2% 10%;
-  width: 90%;
 }
 
 .quiz {
-  margin: 2rem 0;
+  margin: 10% 10% 0;
 }
 
 .options {
@@ -100,8 +98,8 @@ h1 {
 }
 
 @media (max-width: 768px) {
-  .quizzes {
-    margin: 5%;
+  .quiz {
+    margin: 5% 5% 0;
   }
 
   .options {
