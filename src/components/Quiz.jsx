@@ -68,9 +68,7 @@ const Quiz = () => {
   return (
     <div className="quizzes">
       {loading && <h1 className="loading">Loading questions...</h1>}
-      {errorMessage && (
-        <h1 className="loading">Something went wrong... try again</h1>
-      )}
+      {errorMessage && <h1 className="loading">{`${errorMessage}`}</h1>}
       {questions &&
         questions.map((quiz) => {
           return (

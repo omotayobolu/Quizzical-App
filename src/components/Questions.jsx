@@ -6,11 +6,12 @@ const Questions = (props) => {
   return (
     <div className="quiz">
       <h2>{props.question}</h2>
-      <div>
+      <div className="options">
         {props.answers.map((answer) => {
           return <Options key={nanoid()} options={answer} />;
         })}
       </div>
+      <hr />
     </div>
   );
 };

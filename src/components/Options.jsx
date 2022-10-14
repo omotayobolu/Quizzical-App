@@ -3,7 +3,7 @@ import React from "react";
 const Options = (props) => {
   return (
     <div>
-      <p>{props.options}</p>
+      <span className="option">{props.options}</span>
     </div>
   );
 };
