@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Questions from "./Questions";
 import arrayShuffle from "array-shuffle";
+import Confetti from "react-confetti";
 
 const Quiz = () => {
   const [loading, setLoading] = useState(true);
@@ -15,51 +16,48 @@ const Quiz = () => {
   }, []);
 
   const getQuestions = async () => {
-    try {
-      fetch(
-        "https://the-trivia-api.com/api/questions?categories=science,general_knowledge&limit=5&region=NG&difficulty=easy"
-      ).then((response) =>
-        response.json().then((data) => {
-          let results = data.map((result) => {
-            return {
-              ...result,
-              answers: [result.correctAnswer, ...result.incorrectAnswers],
-            };
-          });
+    setLoading(true);
+    fetch(
+      "https://the-trivia-api.com/api/questions?categories=science,general_knowledge&limit=5&region=NG&difficulty=easy"
+    ).then((response) =>
+      response.json().then((data) => {
+        let results = data.map((result) => {
+          return {
+            ...result,
+            answers: [result.correctAnswer, ...result.incorrectAnswers],
+          };
+        });
 
-          let options = results.map((result) => {
-            return {
-              ...result,
-              answers: arrayShuffle(result.answers),
-            };
-          });
+        let completeQuestions = results.map((result) => {
+          return {
+            ...result,
+            answers: arrayShuffle(result.answers),
+          };
+        });
 
-          let correctOption = data.map((result) => {
-            return {
-              id: result.id,
-              correctAnswer: result.correctAnswer,
-            };
-          });
+        let correctOption = data.map((result) => {
+          return {
+            id: result.id,
+            correctAnswer: result.correctAnswer,
+          };
+        });
 
-          let selectedAnswer = data.map((result) => {
-            return {
-              id: result.id,
-              answer: "",
-            };
-          });
+        let selectedAnswer = data.map((result) => {
+          return {
+            id: result.id,
+            answer: "",
+          };
+        });
 
-          setQuestions(options);
-          setCorrectAnswers(correctOption);
-          setSelectedAnswers(selectedAnswer);
-          setCorrectAnswersNumber(0);
-          setIsCompleted(false);
-        })
-      );
-    } finally {
-      setLoading(false);
-    }
+        setLoading(false);
+        setQuestions(completeQuestions);
+        setCorrectAnswers(correctOption);
+        setSelectedAnswers(selectedAnswer);
+        setCorrectAnswersNumber(0);
+        setIsCompleted(false);
+      })
+    );
   };
-
   const checkResult = () => {
     let number = 0;
 
@@ -73,11 +71,18 @@ const Quiz = () => {
     setIsCompleted(true);
   };
 
+  const refreshPage = () => {
+    window.location.reload();
+  };
+
   return (
     <div className="quizzes">
+      {isCompleted
+        ? correctAnswersNumber === questions.length && <Confetti />
+        : null}
       {loading && <h1 className="loading">Loading questions...</h1>}
-      {!questions && !loading && (
-        <h1 className="loading">Error loading questions</h1>
+      {!questions && (
+        <h1 className="loading">Error loading questions, try again</h1>
       )}
       {questions &&
         questions.map((quiz, index) => {
@@ -101,7 +106,7 @@ const Quiz = () => {
               You scored {correctAnswersNumber}/{questions.length} correct
               answers
             </p>
-            <button disabled={loading} className="btn">
+            <button onClick={refreshPage} disabled={loading} className="btn">
               Play again
             </button>
           </div>

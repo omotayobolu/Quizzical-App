@@ -12,6 +12,7 @@ const Options = (props) => {
       return props.optionState;
     }
   };
+
   return (
     <div onClick={props.handleSelection} className={checkOptionState()}>
       <span className="option">{props.options}</span>
