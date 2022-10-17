@@ -60,6 +60,19 @@ const Quiz = () => {
     }
   };
 
+  const checkResult = () => {
+    let number = 0;
+
+    selectedAnswers.map((answer, index) => {
+      if (answer.answer === correctAnswers[index].correctAnswer) {
+        number++;
+      }
+    });
+
+    setCorrectAnswersNumber(number);
+    setIsCompleted(true);
+  };
+
   return (
     <div className="quizzes">
       {loading && <h1 className="loading">Loading questions...</h1>}
@@ -83,7 +96,7 @@ const Quiz = () => {
 
       <div className="summary">
         {isCompleted ? (
-          <div>
+          <div className="completed-summary">
             <p>
               You scored {correctAnswersNumber}/{questions.length} correct
               answers
@@ -93,7 +106,9 @@ const Quiz = () => {
             </button>
           </div>
         ) : (
-          <button className="btn checkAnswer">Check answers</button>
+          <button onClick={checkResult} className="btn checkAnswer">
+            Check answers
+          </button>
         )}
       </div>
     </div>

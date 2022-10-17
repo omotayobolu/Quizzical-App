@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Options from "./Options";
 import { nanoid } from "nanoid";
 
@@ -14,10 +14,10 @@ const Questions = (props) => {
   const checkAnswer = (answer) => {
     if (!props.selectedAnswer) {
       return "greyed-out";
-    } else if (props.finalData.correctAnswers === answer) {
+    } else if (props.finalData.correctAnswer === answer) {
       return "correct";
     } else if (
-      props.finalData.correctAnswers !== props.selectedAnswer &&
+      props.finalData.correctAnswer !== props.selectedAnswer &&
       props.selectedAnswer === answer
     ) {
       return "wrong";
