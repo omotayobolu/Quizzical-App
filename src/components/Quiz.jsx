@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Questions from "./Questions";
 import arrayShuffle from "array-shuffle";
 import Confetti from "react-confetti";
+import { Link } from "react-router-dom";
 
 const Quiz = () => {
   const [loading, setLoading] = useState(true);
@@ -70,10 +71,6 @@ const Quiz = () => {
     setIsCompleted(true);
   };
 
-  const refreshPage = () => {
-    window.location.reload();
-  };
-
   return (
     <div className="quizzes">
       {isCompleted
@@ -105,9 +102,11 @@ const Quiz = () => {
               You scored {correctAnswersNumber}/{questions.length} correct
               answers
             </p>
-            <button onClick={refreshPage} disabled={loading} className="btn">
-              Play again
-            </button>
+            <Link to="/">
+              <button disabled={loading} className="btn">
+                Play again
+              </button>
+            </Link>
           </div>
         ) : (
           <button onClick={checkResult} className="btn checkAnswer">
