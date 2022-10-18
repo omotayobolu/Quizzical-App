@@ -61,11 +61,10 @@ const Quiz = () => {
   const checkResult = () => {
     let number = 0;
 
-    selectedAnswers.map((answer, index) => {
-      if (answer.answer === correctAnswers[index].correctAnswer) {
-        number++;
-      }
-    });
+    selectedAnswers.map(
+      (answer, index) =>
+        answer.answer === correctAnswers[index].correctAnswer && number++
+    );
 
     setCorrectAnswersNumber(number);
     setIsCompleted(true);
